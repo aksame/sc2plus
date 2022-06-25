@@ -7,13 +7,13 @@
 
 
 ### Building ISO
-1. Install required dependencies with pip.
-```bash
-pip install -r requirements.txt
-```
-2. Clone repository and cd into folder.
+1. Clone repository and cd into folder.
 ```bash
 cd sc2plus
+```
+2. Install required dependencies with pip.
+```bash
+pip install -r requirements.txt
 ```
 3. [Download this mod zip file](https://www.mediafire.com/file/sza9ds77hzuhmme/mod-0.9.0.zip/file) and extract its contents to the mod folder.
 4. Place a clean NTSC-U Soul Calibur 2 ISO in the base folder, rename it to grseaf.iso, and extract files.
