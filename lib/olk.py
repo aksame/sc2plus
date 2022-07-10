@@ -207,10 +207,11 @@ def replace_file(olk, r_idx, idx, fn):
 
 		# fix root olk entry offsts
 		for x in range(r_count - (r_idx + 1)):
-			olk.seek(0x20 + ((r_idx + 1) * 0x10) + (x * 0x10))
+			o = 0x20 + ((r_idx + 1) * 0x10) + (x * 0x10)
+			olk.seek(o)
 			e_header = unpack('<I', olk.read(4))
 			e_offset = e_header[0] + add_size
-			olk.seek(0x20 + ((r_idx + 1) * 0x10) + (x * 0x10))
+			olk.seek(o)
 			olk.write(pack('<I', e_offset))
 
 		# fix file entry offsets
@@ -226,7 +227,7 @@ def replace_file(olk, r_idx, idx, fn):
 		olk.seek(0x14)
 		olk.write(pack('<I', r_fSize + add_size))
 		# sub olk entry
-		olk.seek(0x14 + (r_idx * 0x10))
+		olk.seek(0x24 + (r_idx * 0x10))
 		olk.write(pack('<I', s_size + add_size))
 		# sub olk root
 		olk.seek(sub_olk_offset + 0x14)
